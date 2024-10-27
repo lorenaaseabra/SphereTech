@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empresa de TI - Apresentação</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Logo da Empresa</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cadastro.html">Cadastrar</a>
+            </li>
+            <li class="nav-item" id="solicitar-servico" style="display: none">
+              <a class="nav-link" href="solicitar-servico.html"
+                >Solicitar Serviço</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center my-5">
+      <img src="logo.png" alt="Logo da Empresa" class="mb-3" />
+      <h1>Bem-vindo à Empresa de TI</h1>
+      <p>Soluções de TI inovadoras para o seu negócio</p>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <!-- Seção sobre a empresa -->
+      <section>
+        <h2>Sobre Nós</h2>
+        <p>
+          Nossa empresa é referência no mercado de tecnologia, oferecendo
+          soluções de TI que impulsionam o sucesso dos nossos clientes...
+        </p>
+        <a href="https://www.youtube.com/embed/video_id" target="_blank"
+          >Assista ao nosso vídeo institucional</a
+        >
+      </section>
+
+      <!-- Carrossel de fotos -->
+      <section class="my-5">
+        <h2>Galeria de Fotos</h2>
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/img1.jpeg" class="d-block w-100" alt="Foto 1" />
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img2.jpeg" class="d-block w-100" alt="Foto 2" />
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img3.jpeg" class="d-block w-100" alt="Foto 3" />
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img4.jpeg" class="d-block w-100" alt="Foto 4" />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Nossos Serviços com Collapse -->
+      <section>
+        <h2>Nossos Serviços</h2>
+        <div class="d-grid gap-2 my-3">
+          <!-- Desenvolvimento de Software -->
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseDesenvolvimento"
+            aria-expanded="false"
+            aria-controls="collapseDesenvolvimento"
+          >
+            Desenvolvimento de Software
+          </button>
+          <div class="collapse" id="collapseDesenvolvimento">
+            <div class="card card-body">
+              Oferecemos serviços completos de desenvolvimento de software
+              personalizado para atender às necessidades específicas do seu
+              negócio.
+            </div>
+          </div>
+
+          <!-- Consultoria em TI -->
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseConsultoria"
+            aria-expanded="false"
+            aria-controls="collapseConsultoria"
+          >
+            Consultoria em TI
+          </button>
+          <div class="collapse" id="collapseConsultoria">
+            <div class="card card-body">
+              Nossa consultoria em TI ajuda a otimizar a infraestrutura de
+              tecnologia da sua empresa para melhorar a eficiência e a
+              segurança.
+            </div>
+          </div>
+
+          <!-- Suporte Técnico -->
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSuporte"
+            aria-expanded="false"
+            aria-controls="collapseSuporte"
+          >
+            Suporte Técnico
+          </button>
+          <div class="collapse" id="collapseSuporte">
+            <div class="card card-body">
+              Oferecemos suporte técnico especializado para garantir a
+              estabilidade e o funcionamento contínuo do seu sistema de TI.
+            </div>
+          </div>
+
+          <!-- Segurança da Informação -->
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSeguranca"
+            aria-expanded="false"
+            aria-controls="collapseSeguranca"
+          >
+            Segurança da Informação
+          </button>
+          <div class="collapse" id="collapseSeguranca">
+            <div class="card card-body">
+              Serviços especializados em segurança da informação para proteger
+              os dados e sistemas da sua empresa contra ameaças cibernéticas.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabela com CV dos Fundadores -->
+      <section class="my-5">
+        <h2>Fundadores</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Cargo</th>
+              <th>Nome</th>
+              <th>Breve CV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CEO</td>
+              <td>Maria Silva</td>
+              <td>
+                20 anos de experiência na área de TI, especialista em
+                desenvolvimento estratégico e liderança de equipes de inovação.
+              </td>
+            </tr>
+            <tr>
+              <td>CTO</td>
+              <td>João Santos</td>
+              <td>
+                Especialista em arquitetura de sistemas com mais de 15 anos de
+                experiência na implementação de soluções complexas.
+              </td>
+            </tr>
+            <tr>
+              <td>COO</td>
+              <td>Fernanda Oliveira</td>
+              <td>
+                Foco em gestão de operações e processos, com ampla experiência
+                em eficiência operacional e transformação digital.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+      <div class="container p-4">
+        <div class="row">
+          <!-- Contatos -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Contatos</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-phone"></i> (81) 1234-5678</li>
+              <li><i class="fab fa-whatsapp"></i> (81) 91234-5678</li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:contato@empresa.com">contato@empresa.com</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Endereço -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Endereço</h5>
+            <p>Avenida Cais do Apolo, 123 - Marco Zero, Recife - PE</p>
+          </div>
+          <!-- Formas de Pagamento -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5>Formas de Pagamento</h5>
+            <i class="fas fa-credit-card"></i> <i class="fas fa-barcode"></i>
+            <i class="fas fa-university"></i>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3 bg-dark text-white">
+        &copy; 2024 Empresa de TI. Todos os direitos reservados.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
