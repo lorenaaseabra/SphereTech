@@ -48,15 +48,6 @@ Este projeto consiste em um website institucional de uma empresa de TI que ofere
     └── img/                  # Imagens para o carrossel
 ```
 
-## Instalação e Execução
-
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-
-# Navegue até a pasta do projeto e abra o arquivo index.html em um navegador para visualizar a página inicial.
-```
-
 ## Como usar
 
 ### Utilize este link de acesso: https://sphere-tech.vercel.app/
