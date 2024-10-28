@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Adiciona a máscara de CPF ao campo
+  document.getElementById("cpf").addEventListener("input", function () {
+    mascaraCPF(this);
+  });
+});
+
+function mascaraCPF(input) {
+  let v = input.value.replace(/\D/g, ""); // Remove tudo que não é número
+
+  // Aplica a máscara
+  if (v.length > 3) v = v.replace(/(\d{3})(\d)/, "$1.$2");
+  if (v.length > 6) v = v.replace(/(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
+  if (v.length > 9)
+    v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
+
+  input.value = v; // Atualiza o valor do campo com a máscara
+}
+
 function validarCadastro() {
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
@@ -35,15 +54,9 @@ function validarCadastro() {
     return;
   }
 
-  // Validação do CPF
-  const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-  if (!cpfPattern.test(cpf)) {
-    message.textContent = "CPF inválido. Utilize o formato 123.456.789-00.";
-    return;
-  }
-
-  // Validação do algoritmo de CPF
-  if (!validarCPF(cpf)) {
+  // Validação do CPF com remoção da máscara
+  const cpfNumeros = cpf.replace(/[^\d]/g, "");
+  if (cpfNumeros.length !== 11 || !validarCPF(cpfNumeros)) {
     message.textContent = "CPF inválido.";
     return;
   }
@@ -100,7 +113,6 @@ function validarCadastro() {
 }
 
 function validarCPF(cpf) {
-  cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
 
   let soma = 0,

@@ -12,12 +12,15 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo da Empresa</a>
+        <a class="navbar-brand" href="#">
+          <img src="assets/logo.png" alt="Logo SphereTech"
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -38,7 +41,7 @@
               <a class="nav-link" href="cadastro.html">Cadastrar</a>
             </li>
             <li class="nav-item" id="solicitar-servico" style="display: none">
-              <a class="nav-link" href="solicitar-servico.html"
+              <a class="nav-link" href="solicitarservico.html"
                 >Solicitar Serviço</a
               >
             </li>
@@ -49,7 +52,7 @@
 
     <!-- Header -->
     <header class="text-center my-5">
-      <img src="logo.png" alt="Logo da Empresa" class="mb-3" />
+      <img src="assets/logo.png" alt="Logo da Empresa" class="mb-3" />
       <h1>Bem-vindo à Empresa de TI</h1>
       <p>Soluções de TI inovadoras para o seu negócio</p>
     </header>
@@ -60,8 +63,18 @@
       <section>
         <h2>Sobre Nós</h2>
         <p>
-          Nossa empresa é referência no mercado de tecnologia, oferecendo
-          soluções de TI que impulsionam o sucesso dos nossos clientes...
+          Somos uma empresa líder no mercado de tecnologia, dedicada a fornecer soluções de TI inovadoras e personalizadas que impulsionam o crescimento e o sucesso
+          dos nossos clientes. Nossa equipe é composta por especialistas altamente qualificados, comprometidos em entender as necessidades específicas de cada cliente e 
+          desenvolver estratégias que maximizem a eficiência, segurança e competitividade no ambiente digital.
+          <br>
+          <br>
+          Oferecemos uma ampla gama de serviços, desde desenvolvimento de software sob medida, consultoria estratégica em TI, suporte técnico avançado até soluções 
+          de segurança da informação. Nosso compromisso com a qualidade e a inovação nos permite atender empresas de todos os portes, ajudando-as a enfrentar 
+          desafios tecnológicos complexos e a transformar suas operações para um futuro digital.
+          <br>
+          <br>
+          Com foco na experiência do cliente e resultados de alto impacto, trabalhamos lado a lado com nossos parceiros para criar valor sustentável e manter uma 
+          vantagem competitiva em um mercado em constante evolução.
         </p>
         <a href="https://www.youtube.com/embed/video_id" target="_blank"
           >Assista ao nosso vídeo institucional</a
@@ -69,71 +82,102 @@
       </section>
 
       <!-- Carrossel de fotos -->
-      <section class="my-5">
-        <h2>Galeria de Fotos</h2>
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="3"
-            ></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="assets/img1.jpeg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img2.jpeg" class="d-block w-100" alt="Foto 2" />
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img3.jpeg" class="d-block w-100" alt="Foto 3" />
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img4.jpeg" class="d-block w-100" alt="Foto 4" />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
+      <div class="center">
+        <section class="my-5">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-bs-ride="carousel"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="assets/img1.jpg" class="d-block w-100" alt="Foto 1" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h4>Soluções acessíveis</h4>
+                  <p>
+                    Soluções de TI para todas as pessoas, em qualquer contexto
+                    de uso.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img2.jpg" class="d-block w-100" alt="Foto 2" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h4>Múltiplos dispositivos</h4>
+                  <p>
+                    Trabalhamos com a maior gama de dispositivos possível para o
+                    seu negócio.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img3.jpg" class="d-block w-100" alt="Foto 3" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h4>Tecnologia de ponta</h4>
+                  <p>
+                    Uso das tecnologias mais avançadas disponíveis no mercado.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img4.jpg" class="d-block w-100" alt="Foto 4" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h4>Versatilidade em mãos</h4>
+                  <p>Soluções adaptadas à realidade da sua empresa.</p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+      </div>
 
       <!-- Nossos Serviços com Collapse -->
       <section>
@@ -152,9 +196,49 @@
           </button>
           <div class="collapse" id="collapseDesenvolvimento">
             <div class="card card-body">
-              Oferecemos serviços completos de desenvolvimento de software
-              personalizado para atender às necessidades específicas do seu
-              negócio.
+              <strong
+                >Oferecemos serviços completos de desenvolvimento de software
+                personalizado, projetados para atender às necessidades
+                específicas do seu negócio e impulsionar sua inovação.</strong
+              >
+              Nossa equipe trabalha de perto com você em todas as etapas do
+              processo, garantindo que o software seja desenvolvido com alta
+              qualidade e alinhado aos objetivos da sua organização.
+
+              <ul>
+                <li>
+                  <strong>Consultoria e Planejamento:</strong> Entendemos suas
+                  necessidades e elaboramos um plano estratégico para criar
+                  soluções de software que agreguem valor ao seu negócio.
+                </li>
+                <li>
+                  <strong>Desenvolvimento Personalizado:</strong> Desenvolvemos
+                  software sob medida, adaptado às particularidades da sua
+                  empresa, com foco em usabilidade e eficiência.
+                </li>
+                <li>
+                  <strong>Integração com Sistemas Existentes:</strong>
+                  Garantimos a compatibilidade do novo software com suas
+                  soluções existentes, otimizando a operação e a comunicação
+                  entre plataformas.
+                </li>
+                <li>
+                  <strong>Testes Rigorosos e Qualidade:</strong> Realizamos
+                  testes detalhados para assegurar a funcionalidade e a robustez
+                  do software antes de sua implementação.
+                </li>
+                <li>
+                  <strong>Suporte e Manutenção Contínuos:</strong> Oferecemos
+                  suporte pós-implementação para ajustes e atualizações,
+                  garantindo que o software acompanhe o crescimento do seu
+                  negócio.
+                </li>
+              </ul>
+
+              Com nosso serviço de desenvolvimento de software, sua empresa
+              contará com soluções tecnológicas de alto desempenho, pensadas
+              para maximizar a produtividade e facilitar o alcance de novos
+              patamares de sucesso.
             </div>
           </div>
 
@@ -171,9 +255,48 @@
           </button>
           <div class="collapse" id="collapseConsultoria">
             <div class="card card-body">
-              Nossa consultoria em TI ajuda a otimizar a infraestrutura de
-              tecnologia da sua empresa para melhorar a eficiência e a
-              segurança.
+              <strong
+                >Nossa consultoria em TI é projetada para transformar e otimizar
+                a infraestrutura tecnológica da sua empresa de maneira
+                personalizada e eficiente.</strong
+              >
+              Contamos com uma equipe de especialistas altamente qualificados,
+              que trabalham lado a lado com sua organização para identificar
+              oportunidades de melhoria, implementar soluções de ponta e
+              garantir a segurança e robustez de seus sistemas.
+
+              <ul>
+                <li>
+                  <strong>Análise Diagnóstica Completa:</strong> Realizamos uma
+                  análise detalhada da sua infraestrutura atual, identificando
+                  pontos de vulnerabilidade e oportunidades de ganho em
+                  desempenho e segurança.
+                </li>
+                <li>
+                  <strong>Planejamento Estratégico Personalizado:</strong>
+                  Desenvolvemos um plano de ação específico para sua empresa,
+                  focando em maximizar a eficiência e minimizar custos
+                  operacionais.
+                </li>
+                <li>
+                  <strong>Implementação de Soluções Modernas:</strong> Aplicamos
+                  as tecnologias mais recentes para adaptar sua infraestrutura
+                  às demandas atuais, com flexibilidade para se expandir
+                  conforme sua empresa cresce.
+                </li>
+                <li>
+                  <strong>Suporte Contínuo e Treinamento:</strong> Nossa equipe
+                  oferece suporte contínuo, além de treinamentos personalizados
+                  para sua equipe, garantindo que sua organização se mantenha
+                  atualizada e preparada para o futuro.
+                </li>
+              </ul>
+
+              Com nossa consultoria, sua empresa se beneficia de uma
+              infraestrutura de TI mais rápida, segura e capaz de suportar os
+              desafios tecnológicos do mercado atual. Ajustamos cada projeto de
+              acordo com a realidade e os objetivos específicos de cada cliente,
+              assegurando que nossas soluções gerem impacto real e duradouro.
             </div>
           </div>
 
@@ -190,8 +313,48 @@
           </button>
           <div class="collapse" id="collapseSuporte">
             <div class="card card-body">
-              Oferecemos suporte técnico especializado para garantir a
-              estabilidade e o funcionamento contínuo do seu sistema de TI.
+              <strong
+                >Oferecemos suporte técnico especializado para garantir a
+                estabilidade e o funcionamento contínuo do seu sistema de TI,
+                minimizando interrupções e maximizando a eficiência
+                operacional.</strong
+              >
+              Nossa equipe de suporte está preparada para responder rapidamente
+              às suas necessidades e resolver problemas críticos que possam
+              impactar o desempenho de sua empresa.
+
+              <ul>
+                <li>
+                  <strong>Monitoramento Proativo:</strong> Realizamos
+                  monitoramento contínuo dos sistemas para identificar e
+                  corrigir possíveis falhas antes que causem problemas maiores,
+                  garantindo que suas operações permaneçam estáveis.
+                </li>
+                <li>
+                  <strong>Assistência Técnica 24/7:</strong> Nossa equipe está
+                  disponível 24 horas por dia, 7 dias por semana, para fornecer
+                  suporte e solucionar problemas críticos de forma ágil e
+                  eficaz.
+                </li>
+                <li>
+                  <strong>Diagnóstico e Resolução de Problemas:</strong>
+                  Analisamos e resolvemos problemas de TI de maneira eficiente,
+                  proporcionando a continuidade dos processos sem interrupções
+                  desnecessárias.
+                </li>
+                <li>
+                  <strong>Atualizações e Manutenções Preventivas:</strong>
+                  Realizamos atualizações periódicas e manutenções preventivas
+                  para garantir que seus sistemas estejam sempre atualizados e
+                  funcionando com segurança e eficiência.
+                </li>
+              </ul>
+
+              Com nosso suporte técnico, sua empresa conta com uma equipe de
+              especialistas comprometidos em manter sua infraestrutura de TI
+              funcionando de forma confiável, permitindo que você se concentre
+              nas operações principais do seu negócio, com a confiança de que
+              seu ambiente tecnológico está em boas mãos.
             </div>
           </div>
 
@@ -208,15 +371,25 @@
           </button>
           <div class="collapse" id="collapseSeguranca">
             <div class="card card-body">
-              Serviços especializados em segurança da informação para proteger
-              os dados e sistemas da sua empresa contra ameaças cibernéticas.
+              <strong>Nossos serviços especializados em segurança da informação são projetados para proteger os dados e sistemas da sua empresa contra ameaças cibernéticas, garantindo a continuidade e a confiabilidade das suas operações.</strong>
+              Com uma abordagem abrangente, oferecemos soluções que minimizam os riscos e fortalecem a resiliência de sua infraestrutura digital.
+          
+              <ul>
+                <li><strong>Análise e Diagnóstico de Vulnerabilidades:</strong> Realizamos uma análise detalhada para identificar pontos fracos em sua rede e sistemas, aplicando medidas preventivas para minimizar riscos.</li>
+                <li><strong>Implementação de Proteções Avançadas:</strong> Utilizamos tecnologias de ponta para proteger seus dados, incluindo firewalls, sistemas de detecção de intrusões e criptografia de dados sensíveis.</li>
+                <li><strong>Monitoramento em Tempo Real:</strong> Acompanhamos continuamente suas operações para detectar e responder rapidamente a qualquer atividade suspeita ou tentativa de violação.</li>
+                <li><strong>Treinamento e Conscientização de Equipes:</strong> Oferecemos treinamentos para sua equipe, ajudando a criar uma cultura de segurança e a evitar falhas causadas por erro humano.</li>
+                <li><strong>Suporte e Atualizações de Segurança:</strong> Mantemos seus sistemas atualizados e adaptamos as medidas de segurança conforme novas ameaças surgem, garantindo a proteção contínua dos seus dados.</li>
+              </ul>
+          
+              Com nossos serviços de segurança da informação, sua empresa pode operar com tranquilidade, sabendo que seus dados e sistemas estão protegidos contra ameaças modernas, permitindo que você foque no crescimento e inovação do seu negócio.
             </div>
           </div>
-        </div>
+          
       </section>
 
       <!-- Tabela com CV dos Fundadores -->
-      <section class="my-5">
+      <section class="my-5" id="hidden">
         <h2>Fundadores</h2>
         <table class="table table-bordered">
           <thead>
@@ -254,10 +427,43 @@
           </tbody>
         </table>
       </section>
+
+      <section class="my-5">
+        <h2>Fundadores</h2>
+        <section class="founder-cards">
+          <div class="founder-card">
+            <img src="assets/founder2.png" />
+            <h4>João Santos</h4>
+            <h5>CTO</h5>
+            <p>
+              Especialista em arquitetura de sistemas com mais de 15 anos de
+              experiência na implementação de soluções complexas.
+            </p>
+          </div>
+          <div class="founder-card">
+            <img src="assets/founder1.png" />
+            <h4>Mário Silva</h4>
+            <h5>CEO</h5>
+            <p>
+              20 anos de experiência na área de TI, especialista em
+              desenvolvimento estratégico e liderança de equipes de inovação.
+            </p>
+          </div>
+          <div class="founder-card">
+            <img src="assets/founder3.png" />
+            <h4>Fernanda Oliveira</h4>
+            <h5>COO</h5>
+            <p>
+              Foco em gestão de operações e processos, com ampla experiência em
+              eficiência operacional e transformação digital.
+            </p>
+          </div>
+        </section>
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start mt-5">
+    <footer class="footer-bg text-center text-lg-start mt-5">
       <div class="container p-4">
         <div class="row">
           <!-- Contatos -->
@@ -286,9 +492,28 @@
         </div>
       </div>
       <div class="text-center p-3 bg-dark text-white">
-        &copy; 2024 Empresa de TI. Todos os direitos reservados.
+        &copy; 2024 SphereTech. Todos os direitos reservados.
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const emailLogado = localStorage.getItem("emailLogado");
+
+        const solicitarServicoLink =
+          document.getElementById("solicitar-servico");
+        const loginLink = document.querySelector("a[href='login.html']");
+        const cadastroLink = document.querySelector("a[href='cadastro.html']");
+
+        if (emailLogado) {
+          solicitarServicoLink.style.display = "block";
+          loginLink.style.display = "none";
+          cadastroLink.style.display = "none";
+        } else {
+          solicitarServicoLink.style.display = "none";
+        }
+      });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
