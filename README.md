@@ -39,10 +39,9 @@ Este projeto consiste em um website institucional de uma empresa de TI que ofere
 ├── index.html                # Página inicial
 ├── cadastro.html             # Página de cadastro de clientes
 ├── login.html                # Página de login de clientes
-├── solicitar-servico.html    # Página de solicitação de serviços
+├── solicitarervico.html      # Página de solicitação de serviços
 ├── style.css                 # Arquivo de estilos CSS
 ├── solicitarservico.js       # Arquivo JavaScript para funcionalidades de solicitação
-├── utils.js                  # Arquivo JavaScript com funções de máscara e validação de CPF
 └── assets/
     ├── logo.png              # Logo da empresa
     └── img/                  # Imagens para o carrossel
