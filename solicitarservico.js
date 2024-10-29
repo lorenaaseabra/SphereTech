@@ -3,12 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   atualizarDetalhesServico();
 });
 
-// Função para carregar o nome e o e-mail do cliente logado
 function carregarDadosCliente() {
   const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
   const emailLogado = localStorage.getItem("emailLogado");
 
-  // Encontrar o usuário logado no array de usuários
   const usuarioLogado = usuarios.find(
     (usuario) => usuario.email === emailLogado
   );
@@ -22,7 +20,6 @@ function carregarDadosCliente() {
   }
 }
 
-// Atualizar os detalhes do serviço com base na seleção
 function atualizarDetalhesServico() {
   const servico = document.getElementById("servico").value;
   let preco, prazo, descricao;
@@ -71,7 +68,6 @@ function atualizarDetalhesServico() {
   document.getElementById("dataPrevistaServico").textContent =
     dataPrevista.toLocaleDateString("pt-BR");
 
-  // Adiciona a descrição do serviço para uso posterior
   document.getElementById("solicitarServicoForm").dataset.descricaoServico =
     descricao;
 }
@@ -89,8 +85,9 @@ function adicionarSolicitacao() {
   ).textContent;
   const dataPedido = new Date().toLocaleDateString("pt-BR");
   const numeroSolicitacao = Math.floor(Math.random() * 100000);
+  const emptyStateRow = document.getElementById("emptyStateRow");
+  emptyStateRow.style.display = "none";
 
-  // Adicionar linha à tabela com detalhes do serviço
   const linha = document.createElement("tr");
   linha.innerHTML = `
       <td>${dataPedido}</td>
@@ -99,14 +96,21 @@ function adicionarSolicitacao() {
       <td>Em Elaboração</td>
       <td>${preco}</td>
       <td>${dataPrevista}</td>
-      <td class="descricao-limitada">${descricao}</td>
+      <td><div class="descricao-servico">${descricao}</div></td>
       <td><button class="btn btn-danger btn-sm" onclick="removerSolicitacao(this)">Excluir</button></td>
   `;
   tabelaSolicitacoes.appendChild(linha);
+
+  document.getElementById("tabelaSolicitacoesWrapper").style.display = "table";
+  document.getElementById("tituloTabela").style.display = "block";
 }
 
-// Remover solicitação de serviço da tabela
 function removerSolicitacao(botao) {
   const linha = botao.closest("tr");
   linha.remove();
+
+  if (document.getElementById("tabelaSolicitacoes").rows.length === 0) {
+    document.getElementById("tabelaSolicitacoesWrapper").style.display = "none";
+    document.getElementById("tituloTabela").style.display = "none";
+  }
 }

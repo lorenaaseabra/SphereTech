@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Adiciona a máscara de CPF ao campo
   document.getElementById("cpf").addEventListener("input", function () {
     mascaraCPF(this);
   });
 });
 
 function mascaraCPF(input) {
-  let v = input.value.replace(/\D/g, ""); // Remove tudo que não é número
+  let v = input.value.replace(/\D/g, "");
 
   // Aplica a máscara
   if (v.length > 3) v = v.replace(/(\d{3})(\d)/, "$1.$2");
@@ -14,8 +13,27 @@ function mascaraCPF(input) {
   if (v.length > 9)
     v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
-  input.value = v; // Atualiza o valor do campo com a máscara
+  input.value = v;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const telefoneInput = document.getElementById("telefone");
+  telefoneInput.addEventListener("input", handlePhone);
+});
+
+const handlePhone = (event) => {
+  let input = event.target;
+  input.value = phoneMask(input.value);
+};
+
+const phoneMask = (value) => {
+  if (!value) return "";
+  value = value.replace(/\D/g, "");
+  value = value.replace(/(\d{2})(\d)/, "($1) $2");
+  value = value.replace(/(\d{5})(\d{4})$/, "$1-$2");
+
+  return value.length > 15 ? value.slice(0, 15) : value;
+};
 
 function validarCadastro() {
   const email = document.getElementById("email").value;
@@ -31,14 +49,12 @@ function validarCadastro() {
   const escolaridade = document.getElementById("escolaridade").value;
   const message = document.getElementById("message");
 
-  // Validação do e-mail
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   if (!emailPattern.test(email)) {
     message.textContent = "Por favor, insira um e-mail válido.";
     return;
   }
 
-  // Validação da senha
   const senhaPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&*!?\/\\|+_.=-]).{6,}$/;
   if (!senhaPattern.test(senha) || senha !== confirmaSenha) {
     message.textContent =
@@ -46,7 +62,6 @@ function validarCadastro() {
     return;
   }
 
-  // Validação do nome
   const nomePattern = /^[A-Za-z]+(?: [A-Za-z]+)+$/;
   if (!nomePattern.test(nome) || nome.split(" ")[0].length < 2) {
     message.textContent =
@@ -54,14 +69,12 @@ function validarCadastro() {
     return;
   }
 
-  // Validação do CPF com remoção da máscara
   const cpfNumeros = cpf.replace(/[^\d]/g, "");
   if (cpfNumeros.length !== 11 || !validarCPF(cpfNumeros)) {
     message.textContent = "CPF inválido.";
     return;
   }
 
-  // Validação da data de nascimento
   const hoje = new Date();
   const nascimento = new Date(dataNascimento);
   const idade = hoje.getFullYear() - nascimento.getFullYear();
@@ -79,7 +92,6 @@ function validarCadastro() {
     return;
   }
 
-  // Validação do telefone (opcional)
   const telefonePattern = /^\(\d{2}\) \d{5}-\d{4}$/;
   if (telefone && !telefonePattern.test(telefone)) {
     message.textContent =
@@ -87,7 +99,6 @@ function validarCadastro() {
     return;
   }
 
-  // Armazenamento dos dados de cadastro
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
   if (usuarios.some((usuario) => usuario.email === email)) {
     message.textContent = "Este e-mail já está cadastrado.";

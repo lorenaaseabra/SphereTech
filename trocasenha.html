@@ -15,7 +15,6 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/"
@@ -45,7 +44,6 @@
       </div>
     </nav>
 
-    <!-- Formulário de Troca de Senha -->
     <div class="container mt-5">
       <h2 class="text-center">Troca de Senha de Clientes</h2>
       <div class="text-center mb-4">
@@ -109,7 +107,6 @@
     </div>
 
     <script>
-      // Função para trocar a senha do usuário
       function trocarSenha() {
         const email = document.getElementById("email").value;
         const senhaAtual = document.getElementById("senhaAtual").value;
@@ -118,22 +115,18 @@
           document.getElementById("confirmaNovaSenha").value;
         const message = document.getElementById("message");
 
-        // Validar nova senha e confirmação
         if (novaSenha !== confirmaNovaSenha) {
           message.textContent = "As novas senhas não coincidem.";
           return;
         }
 
-        // Obter o array de usuários cadastrados
         let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-        // Encontrar o índice do usuário
         const indiceUsuario = usuarios.findIndex(
           (usuario) => usuario.email === email && usuario.senha === senhaAtual
         );
 
         if (indiceUsuario !== -1) {
-          // Atualizar a senha do usuário
           usuarios[indiceUsuario].senha = novaSenha;
           localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
@@ -146,7 +139,6 @@
         }
       }
 
-      // Função para limpar o formulário
       function limparFormulario() {
         document.getElementById("trocaSenhaForm").reset();
         document.getElementById("message").textContent = "";
