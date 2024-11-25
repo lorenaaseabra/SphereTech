@@ -1,5 +1,7 @@
 import React from "react";
 import "../App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const Footer = () => (
   <footer className="footer-bg text-center text-lg-start mt-5">

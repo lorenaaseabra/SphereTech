@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const RequestService = () => {
   const [services, setServices] = useState([]);
@@ -10,7 +11,7 @@ const RequestService = () => {
   // Função para buscar os serviços disponíveis
   const fetchServices = async () => {
     try {
-      const response = await fetch("/api/servicos/all");
+      const response = await fetch("http://localhost:5000/api/servicos/all");
       const data = await response.json();
       setServices(data.data);
     } catch (error) {
@@ -22,7 +23,7 @@ const RequestService = () => {
   const fetchUserRequests = async () => {
     try {
       const email = localStorage.getItem("emailLogado");
-      const response = await fetch("/api/solicitacoes/get-user-requests", {
+      const response = await fetch("http://localhost:5000/api/solicitacoes/get-user-requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +41,7 @@ const RequestService = () => {
   const handleUpdateRequests = async () => {
     try {
       const email = localStorage.getItem("emailLogado");
-      const response = await fetch("/api/solicitacoes/update-requests", {
+      const response = await fetch("http://localhost:5000/api/solicitacoes/update-requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

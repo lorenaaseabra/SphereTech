@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("/api/clientes/auth", {
+      const response = await fetch("http://localhost:5000/api/clientes/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,6 +24,7 @@ const Login = () => {
 
       if (data.success) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("emailLogado", email);
         navigate("/request-service");
       } else {
         setMessage("Credenciais inválidas.");

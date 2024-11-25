@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -94,7 +95,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("/api/clientes/cadastrar", {
+      const response = await fetch("http://localhost:5000/api/clientes/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

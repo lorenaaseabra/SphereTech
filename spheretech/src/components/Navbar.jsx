@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png"; // Ajuste o caminho da logo conforme necessário
+import logo from "../assets/logo.png"; //
 import "../App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navbar = ({ loggedIn }) => {
   const handleLogout = () => {
@@ -38,6 +39,11 @@ const Navbar = ({ loggedIn }) => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/request-service">
                     Solicitar Serviço
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/create-service">
+                    Criar Serviço
                   </Link>
                 </li>
                 <li className="nav-item">

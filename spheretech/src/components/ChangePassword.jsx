@@ -20,7 +20,7 @@ const ChangePassword = () => {
 
     // Fazendo a requisição para alterar a senha
     try {
-      const response = await fetch("/api/clientes/change-password", {
+      const response = await fetch("http://localhost:5000/api/clientes/change-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
