@@ -24,7 +24,7 @@ const Register = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const validarCadastro = () => {
+  const validarCadastro = async () => {
     const {
       email,
       senha,
@@ -42,7 +42,6 @@ const Register = () => {
       return;
     }
 
-    // Validação da senha
     const senhaPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&*!?\/\\|+_.=-]).{6,}$/;
     if (!senhaPattern.test(senha) || senha !== confirmaSenha) {
       setMessage(
@@ -94,12 +93,25 @@ const Register = () => {
       return;
     }
 
-    // Adicionar usuário ao localStorage
-    usuarios.push(formData);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    try {
+      const response = await fetch("/api/clientes/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
 
-    alert("Cadastro realizado com sucesso! Redirecionando para a página de login.");
-    navigate("/login");
+      if (data.success) {
+        alert("Cadastro realizado com sucesso! Redirecionando para a página de login.");
+        navigate("/login");
+      } else {
+        setMessage(data.message || "Erro ao cadastrar.");
+      }
+    } catch (error) {
+      setMessage("Erro ao realizar o cadastro.");
+    }
   };
 
   const validarCPF = (cpf) => {

@@ -1,31 +1,35 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ChangePassword from "./components/ChangePassword";
 import RequestService from "./components/RequestService";
-import "./App.css"; // Certifique-se de que os estilos globais estejam neste arquivo
+import CreateService from "./components/CreateService";
+import Home from "./components/Home";
+
 
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <div>
         <Routes>
-          {/* Página inicial */}
+          {/* Rota para a página inicial */}
           <Route path="/" element={<Home />} />
-
-          {/* Página de login */}
+          
+          {/* Rota para login */}
           <Route path="/login" element={<Login />} />
 
-          {/* Página de registro */}
+          {/* Rota para cadastro */}
           <Route path="/register" element={<Register />} />
 
-          {/* Página de troca de senha */}
+          {/* Rota para troca de senha */}
           <Route path="/change-password" element={<ChangePassword />} />
 
-          {/* Página de solicitação de serviços */}
+          {/* Rota para solicitação de serviços */}
           <Route path="/request-service" element={<RequestService />} />
+
+          {/* Rota para criar novo serviço de TI */}
+          <Route path="/create-service" element={<CreateService />} />
         </Routes>
       </div>
     </Router>

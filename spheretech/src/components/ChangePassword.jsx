@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import "../App.css";
 
 const ChangePassword = () => {
   const [formData, setFormData] = useState({
@@ -12,132 +10,90 @@ const ChangePassword = () => {
     confirmaNovaSenha: "",
   });
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const trocarSenha = () => {
-    const { email, senhaAtual, novaSenha, confirmaNovaSenha } = formData;
-
-    if (novaSenha !== confirmaNovaSenha) {
-      setMessage("As novas senhas não coincidem.");
+  const handleChangePassword = async () => {
+    // Verifica se as senhas coincidem
+    if (formData.novaSenha !== formData.confirmaNovaSenha) {
+      setMessage("As senhas não coincidem.");
       return;
     }
 
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const indiceUsuario = usuarios.findIndex(
-      (usuario) => usuario.email === email && usuario.senha === senhaAtual
-    );
+    // Fazendo a requisição para alterar a senha
+    try {
+      const response = await fetch("/api/clientes/change-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          senhaAtual: formData.senhaAtual,
+          novaSenha: formData.novaSenha,
+        }),
+      });
 
-    if (indiceUsuario !== -1) {
-      usuarios[indiceUsuario].senha = novaSenha;
-      localStorage.setItem("usuarios", JSON.stringify(usuarios));
-      alert("Senha alterada com sucesso! Redirecionando para a página de login.");
-      navigate("/login");
-    } else {
-      setMessage("E-mail ou senha atual incorretos.");
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage("Senha alterada com sucesso.");
+      } else {
+        setMessage(data.message || "Erro ao alterar senha.");
+      }
+    } catch (error) {
+      setMessage("Erro ao alterar senha.");
     }
-  };
-
-  const limparFormulario = () => {
-    setFormData({
-      email: "",
-      senhaAtual: "",
-      novaSenha: "",
-      confirmaNovaSenha: "",
-    });
-    setMessage("");
   };
 
   return (
     <div className="d-flex flex-column vh-100">
       <Navbar loggedIn={false} />
       <div className="container mt-5 flex-grow-1">
-        <h2 className="text-center">Troca de Senha de Clientes</h2>
-        <div className="text-center mb-4">
-          <img src="/assets/logo.png" alt="Logo da Empresa" />
-        </div>
+        <h2 className="text-center">Trocar Senha</h2>
         <form>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              E-mail:
-            </label>
+            <label htmlFor="email" className="form-label">E-mail:</label>
             <input
               type="email"
               className="form-control"
               id="email"
-              name="email"
-              placeholder="Digite seu e-mail"
               value={formData.email}
-              onChange={handleInputChange}
-              required
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="senhaAtual" className="form-label">
-              Senha Atual:
-            </label>
+            <label htmlFor="senhaAtual" className="form-label">Senha Atual:</label>
             <input
               type="password"
               className="form-control"
               id="senhaAtual"
-              name="senhaAtual"
-              placeholder="Digite sua senha atual"
               value={formData.senhaAtual}
-              onChange={handleInputChange}
-              required
+              onChange={(e) => setFormData({ ...formData, senhaAtual: e.target.value })}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="novaSenha" className="form-label">
-              Nova Senha:
-            </label>
+            <label htmlFor="novaSenha" className="form-label">Nova Senha:</label>
             <input
               type="password"
               className="form-control"
               id="novaSenha"
-              name="novaSenha"
-              placeholder="Digite sua nova senha"
               value={formData.novaSenha}
-              onChange={handleInputChange}
-              required
+              onChange={(e) => setFormData({ ...formData, novaSenha: e.target.value })}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="confirmaNovaSenha" className="form-label">
-              Confirme a Nova Senha:
-            </label>
+            <label htmlFor="confirmaNovaSenha" className="form-label">Confirme a Nova Senha:</label>
             <input
               type="password"
               className="form-control"
               id="confirmaNovaSenha"
-              name="confirmaNovaSenha"
-              placeholder="Confirme sua nova senha"
               value={formData.confirmaNovaSenha}
-              onChange={handleInputChange}
-              required
+              onChange={(e) => setFormData({ ...formData, confirmaNovaSenha: e.target.value })}
             />
           </div>
           {message && <div className="text-danger mb-3">{message}</div>}
-          <div className="d-flex justify-content-between">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={trocarSenha}
-            >
-              Trocar Senha
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={limparFormulario}
-            >
-              Limpar
-            </button>
-          </div>
+          <button type="button" className="btn btn-primary" onClick={handleChangePassword}>
+            Alterar Senha
+          </button>
         </form>
       </div>
       <Footer />
