@@ -1,0 +1,129 @@
+.navbar {
+  background-image: url("");
+  background-color: #010b26;
+  color: white;
+}
+.descricao-limitada {
+  max-height: 4.5em; /* Limita a altura para aproximadamente três linhas */
+  overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
+  overflow-x: hidden; /* Remove a rolagem horizontal */
+  padding-right: 5px; /* Espaço para a barra de rolagem */
+  line-height: 1.5em; /* Altura da linha para calcular três linhas */
+  white-space: normal; /* Permite quebra de linha */
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: aliceblue;
+}
+
+body {
+  background-color: #010b26;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.carousel {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#hidden {
+  display: none;
+}
+
+.founder-card {
+  display: inline-flex;
+  padding: 2rem;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 3px solid #7c7c7c;
+  background: rgba(69, 69, 69, 0.25);
+  box-shadow: 0px 0px 17.2px 6px rgba(255, 255, 255, 0.25);
+}
+
+.founder-card:hover {
+  background-color: rgba(69, 69, 69, 0.55);
+}
+
+.founder-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  flex: 1;
+}
+
+.footer-bg {
+  background-color: #010b26;
+  border-top: 1px solid #7c7c7c;
+  box-shadow: 0px 0px 12.2px 6px rgba(255, 255, 255, 0.25);
+}
+
+.card card table {
+  background-color: #010b26;
+  border: 1px solid #7c7c7c;
+  box-shadow: 0px 0px 17.2px 6px rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.card-body {
+  color: #010b26;
+}
+
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
+table {
+  background-color: #010b26;
+  border: 1px solid #7c7c7c;
+  box-shadow: 0px 0px 17.2px 6px rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+table tr {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.descricao-servico {
+  max-height: 75px;
+  overflow-y: scroll;
+}
+
+.layout-video {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  width: 100%;
+}
