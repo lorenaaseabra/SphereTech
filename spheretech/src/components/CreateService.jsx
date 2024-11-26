@@ -20,13 +20,15 @@ const RequestService = () => {
     prazo: "0 dias",
     descricao: "",
   });
-
-  const [user, setUser] = useState({ nome: "", email: "" });
+  const [userData, setUserData] = useState({
+    nome: "",
+    email: "",
+  });
 
   useEffect(() => {
     fetchServices();
-    fetchUserData();  // Chamada para buscar os dados do cliente logado
     fetchUserRequests();
+    fetchUserData(); // Função que busca os dados do usuário logado
   }, []);
 
   const fetchServices = async () => {
@@ -40,25 +42,6 @@ const RequestService = () => {
       }
     } catch (error) {
       setMessage("Erro ao carregar os serviços.");
-    }
-  };
-
-  const fetchUserData = async () => {
-    try {
-      const email = localStorage.getItem("emailLogado");
-      const response = await fetch("http://localhost:5000/api/clientes/get-user-data", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        setUser(data.data); // Armazena o nome e o email do usuário
-      } else {
-        setMessage("Erro ao carregar dados do cliente.");
-      }
-    } catch (error) {
-      setMessage("Erro ao carregar dados do cliente.");
     }
   };
 
@@ -78,6 +61,28 @@ const RequestService = () => {
       }
     } catch (error) {
       setMessage("Erro ao carregar solicitações.");
+    }
+  };
+
+  const fetchUserData = async () => {
+    try {
+      const email = localStorage.getItem("emailLogado"); // Pega o email do cliente logado
+      const response = await fetch("http://localhost:5000/api/clientes/get-user-data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setUserData({
+          nome: data.data.nome,
+          email: data.data.email,
+        });
+      } else {
+        setMessage("Erro ao carregar dados do usuário.");
+      }
+    } catch (error) {
+      setMessage("Erro ao carregar dados do usuário.");
     }
   };
 
@@ -160,8 +165,8 @@ const RequestService = () => {
         {/* Dados do Cliente */}
         <div id="dadosCliente" className="my-4">
           <h5>Dados do Cliente:</h5>
-          <p><strong>Nome:</strong> <span id="nomeCliente">{user.nome}</span></p>
-          <p><strong>E-mail:</strong> <span id="emailCliente">{user.email}</span></p>
+          <p><strong>Nome:</strong> <span id="nomeCliente">{userData.nome}</span></p>
+          <p><strong>E-mail:</strong> <span id="emailCliente">{userData.email}</span></p>
         </div>
 
         {/* Formulário de Solicitação de Serviço */}
