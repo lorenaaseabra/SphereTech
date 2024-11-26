@@ -1,15 +1,15 @@
 .navbar {
-  background-image: url("");
+  background-image: url("./assets/banner.png");
   background-color: #010b26;
   color: white;
 }
 .descricao-limitada {
-  max-height: 4.5em; /* Limita a altura para aproximadamente três linhas */
-  overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
-  overflow-x: hidden; /* Remove a rolagem horizontal */
-  padding-right: 5px; /* Espaço para a barra de rolagem */
-  line-height: 1.5em; /* Altura da linha para calcular três linhas */
-  white-space: normal; /* Permite quebra de linha */
+  max-height: 4.5em; 
+  overflow-y: scroll; 
+  overflow-x: hidden; 
+  padding-right: 5px; 
+  line-height: 1.5em;
+  white-space: normal; 
 }
 
 .navbar-brand {
@@ -19,6 +19,16 @@
 .navbar-brand:hover {
   color: aliceblue;
 }
+
+header {
+  background-image: url('./assets/banner.png'); /* Caminho relativo ao arquivo CSS */
+  background-size: cover; /* Garante que o banner cubra toda a área */
+  background-position: center; /* Centraliza o banner */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  color: white; /* Torna o texto mais visível */
+  padding: 50px 0; /* Adiciona espaço interno */
+}
+
 
 body {
   background-color: #010b26;
@@ -77,6 +87,10 @@ body {
 .card-body {
   color: #010b26;
 }
+.navbar-brand img {
+  margin-left: 30px; /* Move a logo para a esquerda */
+  margin-top: 10px; /* Move a logo para baixo */
+}
 
 p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -122,8 +136,91 @@ table tr {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-video {
+.video-container video {
   width: 100%;
+  object-fit: cover;
 }
+
+/* Dados do Cliente */
+#dadosCliente {
+  margin-bottom: 30px;
+  padding: 15px;
+  border-left: 4px solid #7c7c7c; /* Destaque visual */
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo leve */
+  border-radius: 5px;
+}
+
+#dadosCliente h5 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+#dadosCliente p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* Formulário */
+form {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05); /* Fundo leve */
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+form .mb-3 {
+  margin-bottom: 15px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form select, form input, form button {
+  margin-top: 5px;
+}
+
+form button {
+  margin-top: 20px;
+  display: block;
+  width: 15%; /* Botão ocupará toda a largura */
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.detalhes-servico-container {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo leve */
+  border-radius: 10px; /* Cantos arredondados */
+  border-left: 4px solid #7c7c7c; /* Destaque com borda lateral */
+  margin-bottom: 20px; /* Espaço abaixo */
+}
+
+.detalhes-servico-container h5 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.detalhe {
+  margin-bottom: 10px;
+  line-height: 1.6; /* Espaçamento entre linhas */
+  display: flex; /* Alinha título e valor lado a lado */
+  justify-content: space-between; /* Espaço entre título e valor */
+  font-size: 1rem;
+}
+
+.detalhe span {
+  font-weight: normal;
+  color: #e0e1dd;
+}
+
+.detalhe strong {
+  font-weight: bold;
+}
+
