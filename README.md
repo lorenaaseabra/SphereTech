@@ -22,29 +22,49 @@ Este projeto consiste em um website institucional de uma empresa de TI que ofere
 - **Cadastro de Clientes:** Permite que novos clientes se cadastrem, preenchendo informações como nome, e-mail, CPF, data de nascimento, telefone, estado civil e escolaridade.
 - **Login e Logout:** Clientes registrados podem fazer login para acessar áreas restritas do site, como a página de solicitação de serviços.
 - **Solicitação de Serviços:** Após o login, clientes podem acessar a área de solicitação de serviços, onde escolhem o tipo de serviço desejado, visualizam os detalhes do serviço e enviam uma solicitação.
-- **Validação e Máscara de CPF:** Implementação de validação e máscara automática para o campo de CPF, permitindo que o usuário insira apenas números e o formato seja ajustado automaticamente.
 
 ## Tecnologias Utilizadas
 
 - **HTML5** - Estrutura do conteúdo das páginas
 - **CSS3** - Estilização e layout
 - **JavaScript** - Funcionalidades interativas e validações de formulário
+- **React** - Biblioteca para construção de interfaces de usuário dinâmicas e componentizadas.
 - **Bootstrap 5** - Design responsivo e componentes visuais
 - **Font Awesome** - Ícones para navegação e estilo
+- **Node.js** - Plataforma para execução do código backend.
+- **Express** - Framework web para criação de rotas e APIs no backend.
+- **MongoDB** - Banco de dados NoSQL para armazenamento das informações.
 
 ## Estrutura de Arquivos
 
 ```plaintext
 .
-├── index.html                # Página inicial
-├── cadastro.html             # Página de cadastro de clientes
-├── login.html                # Página de login de clientes
-├── solicitarervico.html      # Página de solicitação de serviços
-├── style.css                 # Arquivo de estilos CSS
-├── solicitarservico.js       # Arquivo JavaScript para funcionalidades de solicitação
-└── assets/
-    ├── logo.png              # Logo da empresa
-    └── img/                  # Imagens para o carrossel
+Spheretech/
+├── backend/
+│   ├── controllers/        # Lógica de controle para rotas
+│   ├── models/             # Modelos de dados (MongoDB)
+│   ├── node_modules/       # Dependências do backend
+│   ├── routes/             # Definição das rotas da API
+│   ├── seeder/             # Scripts para popular o banco de dados
+│   ├── .env                # Variáveis de ambiente (configurações sensíveis)
+│   ├── package.json        # Dependências e scripts do backend
+│   ├── package-lock.json   # Lockfile para versões exatas das dependências
+│   └── server.js           # Configuração do servidor Express
+├── spheretech/
+│   ├── node_modules/       # Dependências do frontend
+│   ├── public/             # Arquivos públicos (index.html, ícones)
+│   ├── src/                # Código-fonte do React
+│   │   ├── assets/         # Recursos como imagens e ícones
+│   │   ├── components/     # Componentes reutilizáveis do React
+│   │   ├── context/        # Context API para gerenciamento de estado
+│   │   ├── App.css         # Estilos globais do aplicativo
+│   │   ├── App.jsx         # Componente principal do React
+│   │   ├── index.css       # Estilos para o arquivo index.js
+│   │   ├── index.js        # Entrada principal do React
+│   │   ├── reportWebVitals.js  # Métricas de desempenho do app
+│   │   └── setupTests.js   # Configuração para testes automatizados
+
+
 ```
 
 ## Como usar
